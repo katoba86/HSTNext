@@ -1,0 +1,22 @@
+
+$primary:$bg-orange;
+$secondary:$bg-green;
+$warning:$bg-yellow;
+$danger:$bg-red;
+$bg-hero-color:#f0f5fb;
+
+.bg-primary{
+  background-color:$primary;
+  color:white;
+}
+.bg-secondary{
+  background-color:$secondary;
+  color:white;
+}
+.bg-warning{
+  background-color:$warning;
+}
+.bg-danger{
+  background-color:$danger;
+  color:white;
+}

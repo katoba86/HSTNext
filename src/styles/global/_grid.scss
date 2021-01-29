@@ -1,0 +1,49 @@
+
+
+@include breakpoint(md) {
+
+  body .grid{
+    &.full{
+      grid-template-areas:
+        "heading"
+        "content";
+      grid-template-columns: 1fr ;
+    }
+    grid-template-columns: minmax(0px, 960px) 390px;
+    grid-template-areas:
+        "heading heading"
+        "content table-of-contents";
+    column-gap: 40px;
+    &__item{
+      &.c{
+        max-height: calc((100vh - 66px) - 24px);
+        position: sticky;
+        display:block;
+        top: 90px;
+        grid-area: table-of-contents / table-of-contents / table-of-contents / table-of-contents;
+        overflow: auto;
+      }
+    }
+
+  }
+}
+.grid{
+  display:grid;
+  grid-template-columns:100%;
+  grid-template-areas: "heading" "content";
+  row-gap:16px;
+  align-items: start;
+  align-self: start;
+  &__item{
+    @extend .bg-gray;
+    &.a{
+      grid-area: heading / heading / heading / heading;
+    }
+    &.b{
+      grid-area: content / content / content / content;
+    }
+    &.c{
+      display:none;
+    }
+  }
+}

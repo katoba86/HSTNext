@@ -1,0 +1,16 @@
+.hero {
+
+  background-color:$bg-hero-color;
+  background-size: auto 369px;
+  background-position: -330px 100%;
+  background-repeat: repeat-x;
+  //background-image:url(../../images/busx.jpg);
+
+
+  >div {
+    transform-origin: 0;
+    transform: translateZ(0px);
+    min-height: 350px;
+    vertical-align: center;
+  }
+}

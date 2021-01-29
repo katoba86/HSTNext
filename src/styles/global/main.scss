@@ -1,0 +1,49 @@
+
+$marketing-font-path:"/src/fonts/";
+
+@import "~@primer/css/core/index";
+@import "~@primer/css/box/index";
+@import "~@primer/css/utilities/box-shadow";
+@import './helper';
+@import './grid';
+//@import './hero';
+@import './layout';
+
+
+
+.modal{
+  width:100%;
+  height:100vh;
+  display:block;
+  position:absolute;
+  left:0;
+  top:150px;
+  background-color:red;
+  z-index: 5;
+}
+
+.main{
+
+  nav,header{
+    background-color:$blue-300;
+  }
+  header{
+
+    min-height:100%;
+    padding:$spacer-5;
+
+    .app{
+
+
+
+
+    }
+
+  }
+  section{
+
+  }
+
+
+
+}

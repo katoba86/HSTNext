@@ -1,0 +1,99 @@
+
+.page {
+    background-image: url('../../public/images/bg13.webp') !important;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  position: fixed;
+ // background-color: #fff;
+  z-index: 10;
+  /* background-image: url(/mobile/images/bgw.jpg); */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom center;
+  overflow-y: scroll;
+
+  nav.navbar-result-bottom {
+
+    padding: 0 !important;
+
+    .btn-group {
+      height: 8vh;
+      max-height: 55px;
+      width: 100%;
+      display: flex;
+
+      button {
+        flex: 1;
+
+        &.btn-default {
+          background-color: rgba(255, 255, 255, 0.93);
+        }
+
+        border: none;
+      }
+    }
+  }
+
+  &.noScroll {
+    overflow-y: hidden;
+  }
+
+  .nav {
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, .3);
+    background-color: #3198a3;
+    padding: 0 4px 0 4px;
+    display:flex;
+    position:relative;
+    align-items: center;
+    height:48px;
+    color:white;
+    .back{
+      flex: 0 0 auto;
+      padding:12px;
+      font-size:1.5em;
+      color:inherit;
+    }
+    .content{
+
+    }
+    .right{
+      flex: 0 0 auto;
+      padding:12px;
+      font-size:1.5em;
+    }
+  }
+
+  .searchWrapper{
+
+    .input-group{
+      border:none;
+      .input-group-text{
+        background-color:transparent;
+      }
+    }
+
+
+    .pageControl{
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      padding-top: 1em;
+      padding-bottom: 1em;
+      border:0 solid red!important;
+      border-radius:.5em;
+      height:auto!important;
+    }
+  }
+
+
+  .intro {
+    h1, h2 {
+      margin: 0;
+    }
+
+    h3, h4, h5 {
+      margin: 1em 0 !important;
+    }
+  }
+}
