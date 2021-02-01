@@ -4,3 +4,4 @@ export {
 export {
     haveFun
 } from './user';
+export {setModal} from './user';

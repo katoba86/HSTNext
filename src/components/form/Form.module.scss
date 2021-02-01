@@ -1,0 +1,93 @@
+@import "~@primer/css/support/index";
+.mainForm{
+  @include breakpoint(md){
+    margin-top:-139px;
+    position:relative;
+    z-index:3;
+  }
+  background:$white;
+  display:flex;
+  flex-direction:column;
+  align-self: center;
+  border:1px solid $gray-300;
+  box-shadow: 4px 2px 2px rgba(0,0,0,.2);
+  border-radius:$spacer-3;
+  padding:$spacer-3;
+  width:calc(100% - #{$spacer-3*2});
+  margin-top:-140px;
+  @include breakpoint(md){
+    background:white;
+
+  }
+  background-image:url('/images/bus2.png');
+  background-size:contain;
+  background-position:bottom center;
+  background-repeat:no-repeat;
+
+}
+.form__content{
+  margin-top:$spacer-3;
+  position:relative;
+
+  .Box {
+    @include breakpoint(md){
+      display:flex;
+      flex-direction: row;
+      div{
+        flex:1;
+        border-right:1px solid $gray-300;
+        border-radius:0;
+        &:last-of-type{
+          border-right:none;
+        }
+      }
+
+
+      button{
+        height:available;
+        display: block;
+        border-top-left-radius: 0;
+        border-bottom-left-radius:0;
+      }
+
+    }
+    svg {
+      margin: 0 $spacer-3 0 0;
+    }
+
+    .toggle {
+      @include breakpoint(md){
+        position:static;
+        transform:rotate(0);
+        margin-left:-24px;
+        right:auto;
+        left:unset;
+        margin-top:4px;
+      }
+      position: absolute;
+      right: 16px;
+      top: 32px;
+      border-radius: 50%;
+      z-index: 1;
+      transform: rotate(90deg);
+      height: 48px;
+      width: 48px;
+      background-color: #fff;
+      border: 1px solid $gray-300;
+      padding: 11px;
+
+      &:focus {
+        border-radius: 50%;
+        outline: none;
+        background-color: $orange-300;
+        box-shadow: 0 0 12px rgba(245, 128, 11, .5);
+      }
+
+      > svg {
+        fill: $gray-500;
+      }
+
+
+    }
+  }
+}

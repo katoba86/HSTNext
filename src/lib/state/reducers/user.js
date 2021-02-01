@@ -1,13 +1,18 @@
-import {HAVE_FUN} from "../actions/actionTypes";
+import {HAVE_FUN, MODAL} from "../actions/actionTypes";
 
 const initialState = {
-
+    modal:false,
     user:'Kai'
 }
 
-const cityReducer = (state = initialState,action) => {
+const userReducer = (state = initialState,action) => {
 
     switch(action.type){
+        case MODAL:
+            return {
+                ...state,
+                modal:action.open
+            }
         case HAVE_FUN:
             return {
                 ...state,
@@ -17,4 +22,4 @@ const cityReducer = (state = initialState,action) => {
     return state;
 }
 
-export default cityReducer;
+export default userReducer;

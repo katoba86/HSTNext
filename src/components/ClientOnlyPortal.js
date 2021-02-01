@@ -7,8 +7,9 @@ export default function ClientOnlyPortal({ children, selector }) {
     const [mounted, setMounted] = useState(false)
 
     useEffect(() => {
-        ref.current = document.querySelector(selector)
-        setMounted(true)
+        ref.current = document.querySelector(selector);
+        setMounted(true);
+        ref.current.classList.add('blocked');
     }, [selector])
 
     return mounted ? createPortal(children, ref.current) : null
