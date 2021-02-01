@@ -1,28 +1,8 @@
 
 import '../styles/global/main.scss';
 import App from "next/app";
-
-
-import {createStore,applyMiddleware,compose} from 'redux';
-import rootReducer from "../lib/state/reducer";
-import thunk from "redux-thunk";
-import {Provider} from "react-redux";
-
-const logger = store => {
-    return next => {
-        return action => {
-            console.log('[MIDDLEWARE]', action);
-            const result = next(action);
-            console.log('[MIDDLEWARE] next state',store.getState());
-            return result;
-        }
-    }
-};
-
-const composeEnhancers = typeof window != 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const store = createStore(rootReducer,composeEnhancers(applyMiddleware(logger,thunk)));
-
+import {StoreProvider} from "../lib/context/store";
+import {initialState, nameReducer} from "../lib/context/reducer";
 
 
 
@@ -35,9 +15,9 @@ class MyApp extends App{
         const { Component, pageProps } = this.props;
 
         return (
-            <Provider store={store}>
+            <StoreProvider initialState={initialState} reducer={nameReducer}>
                 <Component {...pageProps} />
-            </Provider>
+            </StoreProvider>
         )
     }
 }
