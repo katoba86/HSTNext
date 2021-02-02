@@ -4,22 +4,20 @@ import style from './Form.module.scss';
 import React from "react";
 import Test2 from "../Test2";
 import ClientOnlyPortal from "../ClientOnlyPortal";
-import {useStore} from "../../lib/context/store";
-import {setModal} from "../../lib/context/reducer";
+import {connect} from "react-redux";
+import {setModal} from "../../lib/state/actions";
 
-const Form = () => {
+const Form = ({setModal,modal,origin}) => {
 
-
-    const [state,dispatch] = useStore();
 
     const clickMe = () => {
-        dispatch(setModal(true));
+        setModal(true);
     }
 
     const Loader = () => {
         return (
             <div id="cop">
-                { state.modal && (
+                { modal && (
          <ClientOnlyPortal selector="#__next">
              <Test2/>
          </ClientOnlyPortal>
@@ -38,7 +36,7 @@ const Form = () => {
                 <div className={[style.Box,'Box position-relative'].join(' ')}>
                     <div onClick={clickMe} className="Box-row d-flex flex-items-center">
                         <HomeIcon size={24} />
-                        <div className="flex-auto">{ (state.origin===null)?"Von":state.origin.name }</div>
+                        <div className="flex-auto">{ (origin===null)?"Von":origin.name }</div>
                     </div>
                     <button className={style.toggle}><ArrowSwitchIcon size={24}/></button>
                     <div className="Box-row d-flex flex-items-center">
@@ -60,7 +58,18 @@ const Form = () => {
         </div>
     );
 }
+const mapStateToProps = state => {
+    return {
+        modal:state.modal,
+        origin:state.city.origin
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setModal: (toggle) => dispatch(setModal(toggle))
+    }
+};
 
 
-
-export default Form;
+export default connect(mapStateToProps,mapDispatchToProps)(Form);

@@ -3,31 +3,12 @@ import Link from "next/link"
 import {getBySlug} from "../../lib/api/remote";
 import Layout from "../../components/Layout";
 import {Component} from "react";
-import {Store, StoreProvider, useStore} from "../../lib/context/store";
-import {setOrigin} from "../../lib/context/reducer";
+import {wrapper} from "../../lib/state/store";
+import {connect} from "react-redux";
+import {setOrigin} from "../../lib/state/actions";
+import {setOriginSync} from "../../lib/state/actions/city";
+import {bindActionCreators} from "redux";
 
-
-
-const AuthenticateUser = (ComposedComponent) => {
-
-    class Authenticate extends Component {
-
-
-
-        render() {
-
-            const pageProps = this.props;
-
-            return (
-                <div className="testMe">
-
-                    <ComposedComponent {...pageProps}/>
-                </div>
-            );
-        }
-    }
-    return Authenticate;
-}
 
 const City = ({city}) =>{
 
@@ -39,7 +20,7 @@ const City = ({city}) =>{
     return (
         <Layout>
 
-            {city.name}
+            { JSON.stringify(city)}
             <Link href="/">
                 <a>Back from City to home</a>
             </Link>
@@ -61,18 +42,27 @@ const City = ({city}) =>{
     return { paths, fallback: false }
 } */
 
-//export async function getStaticProps({params}) {
-export async function getServerSideProps({params}) {
-    const res = await getBySlug(params.state,params.city);
-    const data = await res.json()
 
-    return {
-        props: {
-            city:data.data,
-        },
 
-        //revalidate: 1, // In seconds
+
+export const getServerSideProps = wrapper.getServerSideProps(
+    async ({params,store})=>{
+
+        const res = await getBySlug(params.state,params.city);
+        const data = await res.json();
+
+        store.dispatch(setOriginSync(data.data));
+
+
     }
-}
+);
 
-export default AuthenticateUser(City);
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setOriginSync: bindActionCreators(setOriginSync, dispatch),
+    }
+};
+
+
+export default connect(null,mapDispatchToProps)(City);

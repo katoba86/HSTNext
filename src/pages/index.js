@@ -1,29 +1,21 @@
-import {useStore} from "../lib/context/store";
-import {changeName, setOrigin} from "../lib/context/reducer";
-import Intro from "../components/intro/Intro";
-import Form from "../components/form/Form";
 import Layout from "../components/Layout";
+import {connect} from "react-redux";
+import {setOrigin} from "../lib/state/actions";
 
-
-const Home = () => {
-
-
-    const [state,dispatch] = useStore();
-
+const Home = ({setOrigin}) => {
 
 
     const test = () => {
 
 
-        dispatch(setOrigin({
-            name:'Hamm',
+        setOrigin({
+            name:'Doermund',
             id:4191
-        }));
+        });
     };
 
     return (
      <Layout>
-           test {JSON.stringify(state)}
            <hr/>
            <button onClick={test}>Test</button>
       </Layout>
@@ -34,4 +26,11 @@ const Home = () => {
 
 
 
-export default Home;
+const mapDispatchToProps = dispatch => {
+    return {
+        setOrigin: (toWhere) => dispatch(setOrigin(toWhere))
+    }
+};
+
+export default connect(null,mapDispatchToProps)(Home);
+

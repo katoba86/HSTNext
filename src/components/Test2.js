@@ -1,15 +1,12 @@
 import React from "react";
-import {useStore} from "../lib/context/store";
-import {setModal} from "../lib/context/reducer";
-
+import {connect} from "react-redux";
+import {setModal} from "../lib/state/actions";
 const Test2 = () => {
 
 
-    const [,dispatch] = useStore();
-
 
     const hide = () => {
-        dispatch(setModal(false));
+        setModal(false);
     }
 
     const testBackDrop = (e) => {
@@ -30,5 +27,12 @@ const Test2 = () => {
     );
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        setModal: (toggle) => dispatch(setModal(toggle))
+    }
+};
 
-export default Test2;
+
+
+export default connect(null,mapDispatchToProps)(Test2);

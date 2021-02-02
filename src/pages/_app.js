@@ -1,9 +1,8 @@
 
 import '../styles/global/main.scss';
 import App from "next/app";
-import {StoreProvider} from "../lib/context/store";
-import {initialState, nameReducer} from "../lib/context/reducer";
 
+import { wrapper } from '../lib/state/store'
 
 
 
@@ -15,10 +14,10 @@ class MyApp extends App{
         const { Component, pageProps } = this.props;
 
         return (
-            <StoreProvider initialState={initialState} reducer={nameReducer}>
+
                 <Component {...pageProps} />
-            </StoreProvider>
+
         )
     }
 }
-export default MyApp;
+export default wrapper.withRedux(MyApp);
