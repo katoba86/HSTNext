@@ -1,17 +1,45 @@
 import Link from "next/link"
-import Head from "next/head"
-import Layout from "../../src/components/layout"
-import {getAllCities, getBySlug} from "../../src/lib/api/remote";
+
+import {getBySlug} from "../../lib/api/remote";
+import Layout from "../../components/Layout";
+import {Component} from "react";
+import {Store, StoreProvider, useStore} from "../../lib/context/store";
+import {setOrigin} from "../../lib/context/reducer";
+
+
+
+const AuthenticateUser = (ComposedComponent) => {
+
+    class Authenticate extends Component {
+
+
+
+        render() {
+
+            const pageProps = this.props;
+
+            return (
+                <div className="testMe">
+
+                    <ComposedComponent {...pageProps}/>
+                </div>
+            );
+        }
+    }
+    return Authenticate;
+}
 
 const City = ({city}) =>{
+
+
+    let state = {};
+
+
+
     return (
         <Layout>
-            <Head>
-                <title>City Test</title>
-            </Head>
-            <h1>{ city.name } fdfd</h1>
 
-
+            {city.name}
             <Link href="/">
                 <a>Back from City to home</a>
             </Link>
@@ -37,7 +65,7 @@ const City = ({city}) =>{
 export async function getServerSideProps({params}) {
     const res = await getBySlug(params.state,params.city);
     const data = await res.json()
-    console.log(data);
+
     return {
         props: {
             city:data.data,
@@ -47,4 +75,4 @@ export async function getServerSideProps({params}) {
     }
 }
 
-export default City;
+export default AuthenticateUser(City);

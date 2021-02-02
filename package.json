@@ -3,15 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "startdev": "node server.js",
     "dev": "next dev",
     "build": "next build",
+    "analyze": "cross-env BUNDLE_ANALYZE=true next build ",
     "start": "next start"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.0",
     "@primer/css": "^15.2.0",
     "@primer/octicons": "^11.2.0",
+    "next-compose-plugins": "^2.2.1",
     "@primer/octicons-react": "^11.2.0",
+    "@next/bundle-analyzer": "^10.0.6",
     "axios": "^0.21.1",
     "next": "^10.0.0",
     "postcss-flexbugs-fixes": "^5.0.2",

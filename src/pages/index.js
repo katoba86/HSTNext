@@ -1,5 +1,8 @@
 import {useStore} from "../lib/context/store";
-import {changeName} from "../lib/context/reducer";
+import {changeName, setOrigin} from "../lib/context/reducer";
+import Intro from "../components/intro/Intro";
+import Form from "../components/form/Form";
+import Layout from "../components/Layout";
 
 
 const Home = () => {
@@ -10,20 +13,20 @@ const Home = () => {
 
 
     const test = () => {
-        dispatch(changeName("weil wegen...weil..."));
+
+
+        dispatch(setOrigin({
+            name:'Hamm',
+            id:4191
+        }));
     };
 
     return (
-     <>
-
-
-
-        <div className="appWrapper">
-       test {JSON.stringify(state)}
-       <hr/>
-       <button onClick={test}>Test</button>
-         </div>
-      </>
+     <Layout>
+           test {JSON.stringify(state)}
+           <hr/>
+           <button onClick={test}>Test</button>
+      </Layout>
     );
 
 

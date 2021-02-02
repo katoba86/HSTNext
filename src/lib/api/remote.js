@@ -1,19 +1,19 @@
 import httpClient from './client';
 
 
-const HOST = "http://testapi.fahrplan-bus-bahn.de"
+const HOST = process.env.API_HOST;
 
 // you can pass arguments to use as request parameters/data
-const searchMixed = (value) => httpClient.get(`${HOST}/search/mixed/${value}`);
+const searchMixed = (value) => httpClient.get(`/search/mixed/${value}`);
 
 const getBySlug = (state,city) => fetch(`${HOST}/city/byName/${state}/${city}`);
 const getAllCities = () => fetch(`${HOST}/city/all/1`);
 
-const searchHst = (value,cid) => httpClient.get(`${HOST}/search/hst/${value}`,{params: {
+const searchHst = (value,cid) => httpClient.get(`/search/hst/${value}`,{params: {
         rel: cid
     }});
 
-const searchHstNear = (id,value = null,rel = null) => httpClient.get(`${HOST}/hst/${id}/nearhst`,{params: {
+const searchHstNear = (id,value = null,rel = null) => httpClient.get(`/hst/${id}/nearhst`,{params: {
         rel: rel,
         value:value,
         upTo:20,
@@ -21,9 +21,9 @@ const searchHstNear = (id,value = null,rel = null) => httpClient.get(`${HOST}/hs
     }});
 
 
-const searchCitiesNear = (id) => httpClient.get(`${HOST}/city/near/${id}`);
+const searchCitiesNear = (id) => httpClient.get(`/city/near/${id}`);
 
-const hstById = (id) => httpClient.get(`${HOST}/hst/${id}`);
+const hstById = (id) => httpClient.get(`/hst/${id}`);
 
 
 
@@ -45,7 +45,7 @@ const calc = async function(input,what,hash = null){
         return:input.end,
         way:input.way
     };
-    let url = `${HOST}/calc/${what}/${input.origin.type.substring(0,1).toUpperCase()}${input.origin.id}/${input.destination.type.substring(0,1).toUpperCase()}${input.destination.id}`;
+    let url = `/calc/${what}/${input.origin.type.substring(0,1).toUpperCase()}${input.origin.id}/${input.destination.type.substring(0,1).toUpperCase()}${input.destination.id}`;
     if(hash!==null){
         params.tchange = hash;
     }

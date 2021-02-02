@@ -1,20 +1,20 @@
 import React from "react";
-import {connect} from "react-redux";
-import {setModal} from "../lib/state/actions/index";
+import {useStore} from "../lib/context/store";
+import {setModal} from "../lib/context/reducer";
 
-const Test2 = ({setModal}) => {
+const Test2 = () => {
 
 
-
+    const [,dispatch] = useStore();
 
 
     const hide = () => {
-        setModal(false);
+        dispatch(setModal(false));
     }
 
     const testBackDrop = (e) => {
         if(e.target.hasAttribute('data-hide')){
-            setModal(false);
+            hide();
         }
     }
 
@@ -30,12 +30,5 @@ const Test2 = ({setModal}) => {
     );
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        setModal: (toggle) =>dispatch(setModal(toggle))
-        //onHaveFun: (who) => dispatch(haveFun(who)),
-        //onSetOrigin: (toWhere) => dispatch(setOrigin(toWhere))
-    }
-};
 
-export default connect(null,mapDispatchToProps)(Test2);
+export default Test2;

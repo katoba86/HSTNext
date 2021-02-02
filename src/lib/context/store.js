@@ -1,7 +1,7 @@
 import React from 'react';
 import {useReducer} from "react";
 
-const Store = React.createContext();
+export const Store = React.createContext();
 Store.displayName = 'Store';
 
 export const useStore = () => React.useContext(Store);
