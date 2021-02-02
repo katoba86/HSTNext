@@ -1,6 +1,6 @@
 const Intro = () => {
     return (
-        <div>
+        <div className="intro">
             <div className="d-sm-none d-lg-flex flex-lg-column  p-lg-5 col-lg-6 col-sm-12">
                 <h1>Erhalte deinen Fahrplan!<br/>
                     Deine Haltestellen</h1>

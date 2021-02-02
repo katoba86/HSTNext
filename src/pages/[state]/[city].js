@@ -8,9 +8,10 @@ import {connect} from "react-redux";
 import {setOrigin} from "../../lib/state/actions";
 import {setOriginSync} from "../../lib/state/actions/city";
 import {bindActionCreators} from "redux";
+import {SET_ORIGIN} from "../../lib/state/actions/actionTypes";
 
 
-const City = ({city}) =>{
+const City = ({city,origin}) =>{
 
 
     let state = {};
@@ -20,6 +21,7 @@ const City = ({city}) =>{
     return (
         <Layout>
 
+            { JSON.stringify(origin)}
             { JSON.stringify(city)}
             <Link href="/">
                 <a>Back from City to home</a>
@@ -51,18 +53,25 @@ export const getServerSideProps = wrapper.getServerSideProps(
         const res = await getBySlug(params.state,params.city);
         const data = await res.json();
 
-        store.dispatch(setOriginSync(data.data));
+        await store.dispatch(setOriginSync(data.data));
 
 
     }
 );
+const mapStateToProps = state => {
+    return {
+        modal:state.modal,
+        origin:state.city.origin
+    }
+};
 
 
 const mapDispatchToProps = (dispatch) => {
     return {
         setOriginSync: bindActionCreators(setOriginSync, dispatch),
+        setOrigin: setOriginSync,
     }
 };
 
 
-export default connect(null,mapDispatchToProps)(City);
+export default connect(mapStateToProps,mapDispatchToProps)(City);

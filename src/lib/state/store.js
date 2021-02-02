@@ -14,10 +14,16 @@ const bindMiddleware = (middleware) => {
     }
     return applyMiddleware(...middleware)
 }
+const loggerMiddleware = ({ dispatch, getState }) => (next) => (action) => {
+    console.log(action);
+    return next(action);
+};
 
 
 const initStore = () => {
-    return createStore(rootReducer, bindMiddleware([thunkMiddleware]))
+    return createStore(rootReducer, bindMiddleware([loggerMiddleware,thunkMiddleware]))
 }
 
-export const wrapper = createWrapper(initStore)
+export const wrapper = createWrapper(initStore,{
+    debug:true
+})
