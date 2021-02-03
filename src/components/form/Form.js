@@ -48,7 +48,7 @@ const Form = ({setModal,modal,origin}) => {
                         <ClockIcon size={24} />
                         <div className="flex-auto">Wann</div>
                     </div>
-                    <button className="btn btn-default mb-sm-4 bg-warning mt-sm-2 mt-lg-0 mb-lg-0 float-right">
+                    <button className="btn btn-default mb-sm-4 bg-warning mt-2 mt-sm-5 mt-lg-0 mb-lg-0 float-left">
                         Suchen
                     </button>
                 </div>

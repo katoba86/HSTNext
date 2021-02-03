@@ -2,13 +2,13 @@ import Link from "next/link"
 
 import {getBySlug} from "../../lib/api/remote";
 import Layout from "../../components/Layout";
-import {Component} from "react";
 import {wrapper} from "../../lib/state/store";
 import {connect} from "react-redux";
-import {setOrigin} from "../../lib/state/actions";
 import {setOriginSync} from "../../lib/state/actions/city";
 import {bindActionCreators} from "redux";
-import {SET_ORIGIN} from "../../lib/state/actions/actionTypes";
+import Box1 from "../../components/box1/Box1";
+import {HomeFillIcon} from "@primer/octicons-react";
+import React from "react";
 
 
 const City = ({city,origin}) =>{
@@ -21,8 +21,48 @@ const City = ({city,origin}) =>{
     return (
         <Layout>
 
-            { JSON.stringify(origin)}
-            { JSON.stringify(city)}
+
+            <div className="grid container-lg">
+                <div className="grid__item a">
+                    <div className="d-flex flex-column flex-lg-row">
+                        <Box1>
+                            <HomeFillIcon size={48}></HomeFillIcon>
+                            <h3 className="mb-1">Buslinien aller Städte</h3>
+                            <p>
+                                Haltestellen-Buslinien.de zeigt dir (fast) alle Buslinien in nahezu allen Städten Deutschlands.
+                                Ein Klick auf die jeweilgen Buslinien öffnet den Streckenverlauf. Selbstverständlich kannst du
+                                komfortabel nach deiner Busverbindung suchen!
+                            </p>
+                        </Box1>
+                        <Box1>
+                            <HomeFillIcon size={48}></HomeFillIcon>
+                            <h3 className="mb-1">Buslinien aller Städte</h3>
+                            <p>
+                                Haltestellen-Buslinien.de zeigt dir (fast) alle Buslinien in nahezu allen Städten Deutschlands.
+                                Ein Klick auf die jeweilgen Buslinien öffnet den Streckenverlauf. Selbstverständlich kannst du
+                                komfortabel nach deiner Busverbindung suchen!
+                            </p>
+                        </Box1>
+                        <Box1>
+                            <HomeFillIcon size={48}></HomeFillIcon>
+                            <h3 className="mb-1">Buslinien aller Städte</h3>
+                            <p>
+                                Haltestellen-Buslinien.de zeigt dir (fast) alle Buslinien in nahezu allen Städten Deutschlands.
+                                Ein Klick auf die jeweilgen Buslinien öffnet den Streckenverlauf. Selbstverständlich kannst du
+                                komfortabel nach deiner Busverbindung suchen!
+                            </p>
+                        </Box1>
+                    </div>
+                </div>
+                <div className="grid__item b">
+                    right
+                </div>
+                <div className="grid__item c">
+                    test?
+                </div>
+            </div>
+
+
             <Link href="/">
                 <a>Back from City to home</a>
             </Link>

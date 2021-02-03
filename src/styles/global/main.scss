@@ -1,11 +1,12 @@
 
 $marketing-font-path:"/src/fonts/";
-
+$width-lg: 1170px;
 @import "~@primer/css/core/index";
 @import "~@primer/css/box/index";
 @import "~@primer/css/utilities/box-shadow";
 
 @import './helper';
+@import './grid';
 @mixin hst_container{
   width:1170px;
 }
@@ -40,29 +41,34 @@ body{
   height:100vh;
   background-color:white;
   @include breakpoint(md){
+
     padding: 0;
     height:100vh;
     @include hst_container;
     margin:0 0 0 $spacer-5;
     box-shadow:0 0 16px rgba(0,0,0,.5);
     main{
-      margin-top:80px;
+      margin-top:16px;
     }
   }
 
   header{
     @include breakpoint(md){
       padding: 0;
-
+      flex-direction: column;
     }
     display:flex;
     justify-content: center;
     align-items: flex-start;
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding:0;
     width:100%;
     margin: 0 auto;
-    >div:nth-child(1){
+    .intro{
+      h1{
+        @include h1-responsive;
+        margin-top:$spacer-3;
+      }
       @include breakpoint(md){
         position:relative;
         background-color:transparent;
@@ -85,8 +91,8 @@ body{
      //
       width:100%;
       height:388px;
-      background-color:#aeceeb;
-      background:linear-gradient(180deg,#aeceeb,white);
+      padding:0 $spacer-3;
+
     }
 
   }

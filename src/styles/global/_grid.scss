@@ -9,7 +9,7 @@
         "content";
       grid-template-columns: 1fr ;
     }
-    grid-template-columns: minmax(0px, 960px) 390px;
+    grid-template-columns: minmax(0px, 1170px) 390px;
     grid-template-areas:
         "heading heading"
         "content table-of-contents";
@@ -32,10 +32,10 @@
   grid-template-columns:100%;
   grid-template-areas: "heading" "content";
   row-gap:16px;
+  padding:16px;
   align-items: start;
   align-self: start;
   &__item{
-    @extend .bg-gray;
     &.a{
       grid-area: heading / heading / heading / heading;
     }

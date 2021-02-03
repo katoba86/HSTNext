@@ -14,7 +14,7 @@
   border-radius:$spacer-3;
   padding:$spacer-3;
   width:calc(100% - #{$spacer-3*2});
-  margin-top:-140px;
+  margin-top:40px;
   @include breakpoint(md){
     background:white;
 
