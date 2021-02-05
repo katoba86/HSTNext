@@ -1,4 +1,3 @@
-// #region Global Imports
 import { Store } from "redux";
 import { AppInitialProps } from "next/app";
 import { NextPageContext } from "next";

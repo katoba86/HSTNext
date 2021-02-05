@@ -1,18 +1,17 @@
-import {combineReducers} from "redux";
-import cityReducer from "./reducers/city";
-import userReducer from "./reducers/user";
-import {HYDRATE} from "next-redux-wrapper";
+import { AnyAction, combineReducers, Reducer } from "redux";
+import { HYDRATE } from "next-redux-wrapper";
+import { AppState } from "@Interfaces/AppState";
+// import cityReducer from "./Reducers/City";
+import { userReducer } from "./Reducers/User";
 
-
-const rootReducer = (state, action) => {
+const rootReducer: Reducer<AppState, AnyAction> = (state, action) => {
     switch (action.type) {
         case HYDRATE:
-            console.log('HYDRATE', action);
             return action.payload;
         default: {
             const combineReducer = combineReducers({
-                city:cityReducer,
-                user:userReducer
+                // city: cityReducer,
+                user: userReducer,
             });
             return combineReducer(state, action);
         }
@@ -20,4 +19,3 @@ const rootReducer = (state, action) => {
 };
 
 export default rootReducer;
-

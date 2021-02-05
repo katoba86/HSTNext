@@ -1,25 +1,27 @@
-import {HAVE_FUN, MODAL} from "../actions/actionTypes";
+import { UserState } from "@Interfaces/AppState";
 
-const initialState = {
-    modal:false,
-    user:'Kai'
-}
+export const TACTION_SET_NAME: string = "app/user/SET_NAME";
+// export const TACTION_MODAL: string = "app/user/MODAL";
 
-const userReducer = (state = initialState,action) => {
+const initialState: UserState = { name: "Kai", modal: false };
 
-    switch(action.type){
-        case MODAL:
-            return {
-                ...state,
-                modal:action.open
-            }
-        case HAVE_FUN:
-            return {
-                ...state,
-                user:action.name
-            }
+export const setName = (username: string) => ({
+    type: TACTION_SET_NAME,
+    payload: username,
+});
+
+type UserAction = ReturnType<typeof setName>;
+// type UserAction = ReturnType<typeof login | typeof logout>;
+
+export function userReducer(
+    state = initialState,
+    action: UserAction
+): UserState {
+    switch (action.type) {
+        case TACTION_SET_NAME:
+            console.log("Test2");
+            return { ...state, name: action.payload };
+        default:
+            return state;
     }
-    return state;
 }
-
-export default userReducer;
