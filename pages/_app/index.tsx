@@ -1,12 +1,18 @@
-import React, { FC } from 'react'
-import { AppProps } from 'next/app'
-import { storeWrapper } from '@Store/Store'
+import React from 'react'
+import App from 'next/app'
+import {Provider} from "react-redux";
+import { wrapper } from "@Redux/store";
 
 
-const CustomApp: FC<AppProps> = ({ Component, pageProps }) => (
 
-  
-    <Component {...pageProps} />
-  );
+class WebApp extends App {
+      render() {
+        const { Component, pageProps } = this.props;
 
-  export default storeWrapper.withRedux(CustomApp)
+        return (
+                    <Component {...pageProps} />
+        );
+    }
+}
+
+export default wrapper.withRedux(WebApp);

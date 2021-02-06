@@ -1,28 +1,28 @@
-import { connect } from "react-redux";
 
 import React from "react";
-import { AppState } from "@Interfaces/AppState";
-import { setName } from "@Store/Reducers/User";
+import {connect, useDispatch, useSelector} from "react-redux";
+import {setName, UserState} from "@Redux/userReducer"
 
-const mapStateToProps = ({ user }: AppState) => ({
-    name: user.name,
-});
-const mapDispatchToProps = { setName };
 
-type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 
-const HomePage: React.FC<Props> = ({ name }) => {
+const HomePage = () => {
+
+
+    const name = useSelector<UserState,UserState["name"]>(state => state.name);
+    const dispatch = useDispatch();
+
+
     const clickMe = () => {
-
-        setName("Silvia");
+            console.log('Click me');
+        dispatch(setName("Silvia"));
     };
 
     return (
         <>
             <p>huhu from page</p>
             <h1>
-                My Name is:
-                {name}
+                { name }
+              dfdfd
             </h1>
             <button type="button" onClick={clickMe}>
                 Test
@@ -31,4 +31,6 @@ const HomePage: React.FC<Props> = ({ name }) => {
     );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+
+
+export default HomePage;
