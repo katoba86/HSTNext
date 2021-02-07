@@ -9,6 +9,7 @@ export const haveFun = (who) => {
 export const setModal = (toggle) => {
     return {
         type:MODAL,
-        open:toggle
+        istBunt:toggle,
+        bla:'Test'
     }
 }

@@ -1,27 +1,27 @@
 
 import React from "react";
-import {connect, useDispatch, useSelector} from "react-redux";
-import {setName, UserState} from "@Redux/userReducer"
-
+import { useDispatch, useSelector} from "react-redux";
+import {AppState} from "@Redux/reducer";
+import {setName} from "@Redux/actions/user";
+import {UserState} from "../src/type";
+import {NextPageContext} from "next";
+import {wrapper} from "@Redux/store";
 
 
 const HomePage = () => {
 
-
-    const name = useSelector<UserState,UserState["name"]>(state => state.name);
+    const user = useSelector((state: AppState):UserState => state.user);
     const dispatch = useDispatch();
 
-
     const clickMe = () => {
-            console.log('Click me');
-        dispatch(setName("Silvia"));
+        dispatch(setName('Silvia'));
     };
 
     return (
         <>
             <p>huhu from page</p>
             <h1>
-                { name }
+                {user.name}
               dfdfd
             </h1>
             <button type="button" onClick={clickMe}>
@@ -30,7 +30,14 @@ const HomePage = () => {
         </>
     );
 };
-
+export interface ReduxNextPageContext extends NextPageContext {
+    store: AppState;
+}
+export const getServerSideProps = wrapper.getServerSideProps(async ({store}) => {
+    console.log("LUVU!!!!");
+    store.dispatch(setName("Yannick"));
+   console.log(store.getState());
+});
 
 
 export default HomePage;
