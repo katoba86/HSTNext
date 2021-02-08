@@ -1,1 +1,6 @@
 **/*.scss
+src_old/
+public/
+public
+src_old
+styles

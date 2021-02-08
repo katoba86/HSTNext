@@ -1,17 +1,13 @@
-import React from 'react'
-import App from 'next/app'
-import {Provider} from "react-redux";
+import React from "react";
+import App from "next/app";
 import { wrapper } from "@Redux/store";
-
-
+import "../../styles/global/main.scss";
 
 class WebApp extends App {
-      render() {
+    render() {
         const { Component, pageProps } = this.props;
 
-        return (
-                    <Component {...pageProps} />
-        );
+        return <Component {...pageProps} />;
     }
 }
 

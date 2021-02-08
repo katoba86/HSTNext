@@ -27,6 +27,10 @@
       "@Reducers/*": ["src/Redux/Reducers/*"],
       "@Redux": ["src/Redux"],
       "@Redux/*": ["src/Redux/*"],
+
+      "@Api": ["src/Api"],
+      "@Api/*": ["src/Api/*"],
+
       "@Server/*": ["server/*"],
       "@Services": ["src/Services"],
       "@Services/*": ["src/Services/*"],

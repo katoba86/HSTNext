@@ -1,25 +1,21 @@
-import {AnyAction,  combineReducers} from "redux";
-import cityReducer from "./reducers/city";
-import userReducer from "./reducers/user";
-import {HYDRATE} from "next-redux-wrapper";
-
-
+import { AnyAction, combineReducers } from "redux";
+import { HYDRATE } from "next-redux-wrapper";
+import { cityReducer } from "@Reducers/City";
+import { userReducer } from "@Reducers/User";
 
 export const combinedReducer = combineReducers({
-    city:cityReducer,
-    user:userReducer
+    city: cityReducer,
+    user: userReducer,
 });
 
-const rootReducer = (state:any, action:AnyAction) => {
-    console.log("Received action",action);
+export const rootReducer = (state: any, action: AnyAction) => {
     switch (action.type) {
         case HYDRATE:
             return action.payload;
         default: {
+            // @ts-ignore
             return combinedReducer(state, action);
         }
     }
 };
-export type AppState = ReturnType<typeof rootReducer>;
-export default rootReducer;
-
+export type ApplicationState = ReturnType<typeof rootReducer>;
