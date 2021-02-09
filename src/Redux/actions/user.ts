@@ -2,14 +2,13 @@ import { AnyAction } from "redux";
 import { getUser } from "@Api/Index";
 import { ThunkDispatch } from "redux-thunk";
 
-
 import {
     IUserSetModal,
     IUserSetNameAction,
     SET_MODAL,
     SET_NAME,
 } from "./actionTypes";
-import {ThunkType} from "../../type";
+import { ThunkType } from "../../type";
 
 export const setModal = (toggle: boolean): IUserSetModal => {
     return {
@@ -24,8 +23,6 @@ export const setName = (name: string): IUserSetNameAction => {
         type: SET_NAME,
     };
 };
-
-
 
 export const setNameAsync = (): ThunkType => {
     return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {

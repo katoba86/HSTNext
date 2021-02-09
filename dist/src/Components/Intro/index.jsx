@@ -1,8 +1,7 @@
-import style from './Intro.module.scss';
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const Intro = () => {
-    return (
-        <div className={[style.intro,'intro'].join(' ')}>
+    return (<div className="intro">
             <div className="d-sm-none d-lg-flex flex-lg-column  p-lg-5 col-lg-6 col-sm-12">
                 <h1>
                     Erhalte deinen Fahrplan!
@@ -16,7 +15,6 @@ const Intro = () => {
                     dabei sein!
                 </p>
             </div>
-        </div>
-    );
+        </div>);
 };
-export default Intro;
+exports.default = Intro;

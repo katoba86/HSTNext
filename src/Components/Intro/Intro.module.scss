@@ -1,0 +1,8 @@
+@import "~@primer/css/support/index";
+@include breakpoint(md) {
+
+        .intro{
+            background-image:url(/images/busx.jpg);
+        }
+
+}
