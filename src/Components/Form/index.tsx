@@ -11,11 +11,17 @@ import { ApplicationState } from "@Redux/reducer";
 import { setModal } from "@Redux/actions";
 import style from "./Form.module.scss";
 import { UserState } from "../../type";
+import CityModal from "@Components/CityModal";
+
+
+interface FormProps {
+    noMargin?:boolean
+}
 
 interface OpenModalParams extends React.MouseEvent{
 }
 
-const Form = () => {
+const Form = ({noMargin}:FormProps) => {
     const { modal } = useSelector(
         (state: ApplicationState): UserState => state.user
     );
@@ -27,7 +33,7 @@ const Form = () => {
             <div id="cop">
                 <ClientOnlyPortal selector="#__next">
                     { modal && (
-                        <h1>Test Modal</h1>
+                        <CityModal />
                     )}
                 </ClientOnlyPortal>
             </div>
@@ -39,8 +45,13 @@ const Form = () => {
         dispatch(setModal(true));
     };
 
+    const classes:string[] = [style.mainForm];
+    if(noMargin){
+        classes.push(style.no_margin);
+    }
+
     return (
-        <div id="Form" className={style.mainForm}>
+        <div id="Form" className={classes.join(' ')}>
             <Loader />
 
             <h1 className="d-md-none">Haltestellen</h1>
@@ -67,7 +78,7 @@ const Form = () => {
                     </div>
                     <button
                         type="button"
-                        className="btn btn-default mb-sm-4 bg-warning mt-2 mt-sm-5 mt-lg-0 mb-lg-0 float-left"
+                        className="btn btn-default mb-sm-4 bg-warning mt-2 mt-sm-5 mt-md-0 mb-md-0 float-left"
                     >
                         Suchen
                     </button>

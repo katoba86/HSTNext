@@ -1,6 +1,6 @@
-import { AnyAction } from "redux";
-import { getUser } from "@Api/Index";
-import { ThunkDispatch } from "redux-thunk";
+//import { AnyAction } from "redux";
+//import { getUser } from "@Api/Index";
+//import { ThunkDispatch } from "redux-thunk";
 
 import {
     IUserSetModal,
@@ -23,7 +23,7 @@ export const setName = (name: string): IUserSetNameAction => {
         type: SET_NAME,
     };
 };
-
+/*
 export const setNameAsync = (): ThunkType => {
     return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
         const user = await getUser();
@@ -31,3 +31,4 @@ export const setNameAsync = (): ThunkType => {
         dispatch(setName(name));
     };
 };
+*/
