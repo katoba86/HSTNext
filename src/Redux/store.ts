@@ -27,7 +27,7 @@ const loggerMiddleware: Middleware = ({ getState }: MiddlewareAPI) => (
     return returnValue;
 };
 
-const initStore = () => {
+export const initStore = () => {
     return createStore(
         rootReducer,
         bindMiddleware([loggerMiddleware, thunkMiddleware])
