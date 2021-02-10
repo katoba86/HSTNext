@@ -42,10 +42,7 @@ const Form = () => {
     return (
         <div id="Form" className={style.mainForm}>
             <Loader />
-            <h1>
-                Modal:
-                {modal ? "opend" : "closed"}
-            </h1>
+
             <h1 className="d-md-none">Haltestellen</h1>
             <form className={style.form__content}>
                 <div
