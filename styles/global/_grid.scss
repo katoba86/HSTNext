@@ -15,7 +15,7 @@
         "content table-of-contents";
     column-gap: 40px;
     &__item{
-      &.c{
+      &.right{
         max-height: calc((100vh - 66px) - 24px);
         position: sticky;
         display:block;
@@ -36,13 +36,13 @@
   align-items: start;
   align-self: start;
   &__item{
-    &.a{
+    &.top{
       grid-area: heading / heading / heading / heading;
     }
-    &.b{
+    &.left{
       grid-area: content / content / content / content;
     }
-    &.c{
+    &.right{
       display:none;
     }
   }

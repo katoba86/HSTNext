@@ -1,1 +1,8 @@
-export const getUser = () => fetch(`http://localhost:3000/api/user`);
+
+export interface GraphQuery{
+    variables?:any;
+    preview?:boolean;
+}
+export interface ProcessEnv {
+    [key: string]: string | undefined
+}

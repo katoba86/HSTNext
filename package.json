@@ -86,6 +86,7 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
+    "@next/mdx": "^10.0.6",
     "@fullhuman/postcss-purgecss": "^4.0.0",
     "@next/bundle-analyzer": "^10.0.6",
     "@primer/css": "^15.2.0",
