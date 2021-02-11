@@ -9,13 +9,14 @@ const react_1 = __importDefault(require("react"));
 const react_redux_1 = require("react-redux");
 const actions_1 = require("@Redux/actions");
 const Form_module_scss_1 = __importDefault(require("./Form.module.scss"));
-const Form = () => {
+const CityModal_1 = __importDefault(require("@Components/CityModal"));
+const Form = ({ noMargin }) => {
     const { modal } = react_redux_1.useSelector((state) => state.user);
     const dispatch = react_redux_1.useDispatch();
     const Loader = () => {
         return (<div id="cop">
                 <ClientPortal_1.default selector="#__next">
-                    {modal && (<h1>Test Modal</h1>)}
+                    {modal && (<CityModal_1.default />)}
                 </ClientPortal_1.default>
             </div>);
     };
@@ -23,12 +24,13 @@ const Form = () => {
         e.preventDefault();
         dispatch(actions_1.setModal(true));
     };
-    return (<div id="Form" className={Form_module_scss_1.default.mainForm}>
+    const classes = [Form_module_scss_1.default.mainForm];
+    if (noMargin) {
+        classes.push(Form_module_scss_1.default.no_margin);
+    }
+    return (<div id="Form" className={classes.join(' ')}>
             <Loader />
-            <h1>
-                Modal:
-                {modal ? "opend" : "closed"}
-            </h1>
+
             <h1 className="d-md-none">Haltestellen</h1>
             <form className={Form_module_scss_1.default.form__content}>
                 <div onClick={(e) => openModal(e)} className={[Form_module_scss_1.default.Box, "Box position-relative"].join(" ")}>
@@ -48,7 +50,7 @@ const Form = () => {
                         <octicons_react_1.ClockIcon size={24}/>
                         <div className="flex-auto">Wann</div>
                     </div>
-                    <button type="button" className="btn btn-default mb-sm-4 bg-warning mt-2 mt-sm-5 mt-lg-0 mb-lg-0 float-left">
+                    <button type="button" className="btn btn-default mb-sm-4 bg-warning mt-2 mt-sm-5 mt-md-0 mb-md-0 float-left">
                         Suchen
                     </button>
                 </div>

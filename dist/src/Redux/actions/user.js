@@ -1,7 +1,9 @@
 "use strict";
+//import { AnyAction } from "redux";
+//import { getUser } from "@Api/Index";
+//import { ThunkDispatch } from "redux-thunk";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setNameAsync = exports.setName = exports.setModal = void 0;
-const Index_1 = require("@Api/Index");
+exports.setName = exports.setModal = void 0;
 const actionTypes_1 = require("./actionTypes");
 exports.setModal = (toggle) => {
     return {
@@ -15,10 +17,12 @@ exports.setName = (name) => {
         type: actionTypes_1.SET_NAME,
     };
 };
-exports.setNameAsync = () => {
-    return async (dispatch) => {
-        const user = await Index_1.getUser();
+/*
+export const setNameAsync = (): ThunkType => {
+    return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+        const user = await getUser();
         const { name } = await user.json();
-        dispatch(exports.setName(name));
+        dispatch(setName(name));
     };
 };
+*/
