@@ -8,5 +8,5 @@ import React from "react";
 // #endregion Local Imports
 
 export const withRedux = () => (story: any) => (
-    <Provider store={initStore()}> {story()}</Provider >
+    <Provider store={initStore}> {story()}</Provider >
 );

@@ -1,14 +1,14 @@
 import { LayoutProps } from "@Components/Layout/Layout";
-import Intro from "@Components/Intro";
 import style from './Layout.module.scss';
 import dynamic from "next/dynamic";
-const DynamicForm = dynamic(() => import('@Components/Form'));
+const DynamicForm = dynamic(() => import('@Components/Form'),{ssr:false});
+const DynamicIntro = dynamic(() => import('@Components/Intro'));
 
 const Layout = ({ children }: LayoutProps) => {
     return (
         <div className={style.appWrapper}>
             <header className={style.header}>
-                <Intro />
+                <DynamicIntro />
                 <DynamicForm />
             </header>
             <main>{children}</main>

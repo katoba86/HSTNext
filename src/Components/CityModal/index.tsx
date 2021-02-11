@@ -1,9 +1,26 @@
 import style from './CityModal.module.scss';
 import {ChevronLeftIcon, XIcon} from "@primer/octicons-react";
+import {setModal} from "@Redux/actions";
+import {useDispatch} from "react-redux";
+import React from "react";
 const CityModal = () => {
+    const dispatch = useDispatch();
+
+    const hide = () => {
+        dispatch(setModal(false));
+    }
+
+
+    const testBackDrop = (e:React.MouseEvent) => {
+        const t = e.target as Element;
+        console.log(t);
+        if(t.hasAttribute('data-hide')) {
+            hide();
+        }
+    }
 
     return (
-        <div className={style.page}>
+        <div data-hide="true"  className={style.page} onClick={(e:React.MouseEvent) => testBackDrop(e)}>
             <div className={style.page__content}>
                 <div className={style.Box}>
 

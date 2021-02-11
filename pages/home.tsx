@@ -1,11 +1,10 @@
 import React from "react";
 import { ApplicationState } from "@Redux/reducer";
-import {GetStaticProps, NextPageContext} from "next";
+import { NextPageContext } from "next";
 import Layout from "@Components/Layout";
 import Box from "@Components/Box";
 import {connect, useSelector} from "react-redux";
 import {UserState} from "../src/type";
-import {fetchHome} from "@Api";
 
 
 const HomePage = () => {
@@ -51,15 +50,6 @@ const HomePage = () => {
 };
 export interface ReduxNextPageContext extends NextPageContext {
     store: ApplicationState;
-}
-export const getStaticProps: GetStaticProps = async (context) => {
-    const data = await fetchHome();
-    console.log(data);
-   return {
-       props:{
-
-       }
-   }
 }
 /*
 export const getStaticProps = wrapper.getStaticProps(

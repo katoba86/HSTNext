@@ -6,9 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 const Layout_1 = __importDefault(require("@Components/Layout"));
 const Box_1 = __importDefault(require("@Components/Box"));
+const react_redux_1 = require("react-redux");
 const HomePage = () => {
+    const u = react_redux_1.useSelector((state) => state.user);
     return (<Layout_1.default>
-
 
             <div className="grid">
                 <div className="grid__item top">
@@ -59,4 +60,4 @@ export const getServerSideProps = wrapper.getServerSideProps(
     }
 );
  */
-exports.default = HomePage;
+exports.default = react_redux_1.connect(null, null)(HomePage);

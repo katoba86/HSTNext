@@ -5,14 +5,12 @@ import {
     HomeIcon,
     MilestoneIcon,
 } from "@primer/octicons-react";
-import React, {useState} from "react";
-import {Provider, useDispatch, useSelector} from "react-redux";
+import React from "react";
+import { useDispatch, useSelector} from "react-redux";
 import { ApplicationState } from "@Redux/reducer";
 import { setModal } from "@Redux/actions";
 import style from "./Form.module.scss";
 import { UserState } from "../../type";
-import CityModal from "@Components/CityModal";
-import {initStore, wrapper} from "@Redux/store";
 import dynamic from "next/dynamic";
 
 
@@ -108,4 +106,4 @@ const Form = ({noMargin}:FormProps) => {
 
     );
 };
-export default wrapper.withRedux(Form);
+export default Form;

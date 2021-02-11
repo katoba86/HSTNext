@@ -87,6 +87,8 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
+    "storyblok-js-client": "^2.1.0",
+    "storyblok-react": "0.0.10",
     "@fullhuman/postcss-purgecss": "^4.0.0",
     "@next/bundle-analyzer": "^10.0.6",
     "@next/mdx": "^10.0.6",

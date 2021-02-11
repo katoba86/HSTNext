@@ -1,12 +1,12 @@
 import React from "react";
-import {connect} from "react-redux";
+import {connect, useDispatch} from "react-redux";
 import {setModal} from "../lib/state/actions";
 const Test2 = () => {
 
-
+    const dispatch = useDispatch();
 
     const hide = () => {
-        setModal(false);
+        useDispatch(setModal(false));
     }
 
     const testBackDrop = (e) => {

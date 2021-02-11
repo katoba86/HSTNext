@@ -27,13 +27,8 @@ const loggerMiddleware: Middleware = ({ getState }: MiddlewareAPI) => (
     return returnValue;
 };
 
-export const initStore = () => {
-    return createStore(
+export const initStore =  createStore(
         rootReducer,
         bindMiddleware([loggerMiddleware, thunkMiddleware])
-    );
-};
+);
 
-export const wrapper = createWrapper(initStore, {
-    debug: true,
-});
