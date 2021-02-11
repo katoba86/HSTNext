@@ -1,0 +1,49 @@
+
+$marketing-font-path:"/src/fonts/";
+$width-lg: 1170px;
+@import "~@primer/css/support";
+//@import "~@primer/css/utilities/box-shadow";
+
+@import '../../../styles/global/helper';
+@import '../../../styles/global/grid';
+
+
+
+
+
+$width-lg: 1170px;
+
+.appWrapper{
+    position:relative;
+    height:100vh;
+    background-color:white;
+    @include breakpoint(md){
+
+        padding: 0;
+        height:100vh;
+        @include hst_container;
+        margin:0 0 0 $spacer-5;
+        box-shadow:0 0 16px rgba(0,0,0,.5);
+        main{
+            margin-top:16px;
+        }
+    }
+
+    .header{
+        @include breakpoint(md){
+            padding: 0;
+            flex-direction: column;
+        }
+        display:flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column-reverse;
+        padding:0;
+        width:100%;
+        margin: 0 auto;
+
+
+    }
+
+
+}

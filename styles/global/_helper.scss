@@ -14,9 +14,12 @@ $bg-hero-color:#f0f5fb;
   color:white;
 }
 .bg-warning{
-  background-color:$warning;
+  background-color:$warning!important;
 }
 .bg-danger{
   background-color:$danger;
   color:white;
+}
+@mixin hst_container{
+    width:1170px;
 }

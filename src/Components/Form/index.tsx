@@ -5,13 +5,15 @@ import {
     HomeIcon,
     MilestoneIcon,
 } from "@primer/octicons-react";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, {useState} from "react";
+import {Provider, useDispatch, useSelector} from "react-redux";
 import { ApplicationState } from "@Redux/reducer";
 import { setModal } from "@Redux/actions";
 import style from "./Form.module.scss";
 import { UserState } from "../../type";
 import CityModal from "@Components/CityModal";
+import {initStore, wrapper} from "@Redux/store";
+import dynamic from "next/dynamic";
 
 
 interface FormProps {
@@ -26,21 +28,38 @@ const Form = ({noMargin}:FormProps) => {
         (state: ApplicationState): UserState => state.user
     );
 
+    const DynamicComponent5 = dynamic(
+        () => import('@Components/CityModal'),
+        {ssr:false}
+    )
+
     const dispatch = useDispatch();
 
+
+    const renderModal = () => {
+        if(modal){
+           return <DynamicComponent5 />
+        }
+        return (
+            <div>test</div>
+        );
+    }
+
     const Loader = () => {
+
+
         return (
             <div id="cop">
                 <ClientOnlyPortal selector="#__next">
-                    { modal && (
-                        <CityModal />
-                    )}
+                    { modal && renderModal()}
                 </ClientOnlyPortal>
             </div>
         );
     };
 
     const openModal = (e: OpenModalParams) => {
+
+
         e.preventDefault();
         dispatch(setModal(true));
     };
@@ -51,6 +70,7 @@ const Form = ({noMargin}:FormProps) => {
     }
 
     return (
+
         <div id="Form" className={classes.join(' ')}>
             <Loader />
 
@@ -85,6 +105,7 @@ const Form = ({noMargin}:FormProps) => {
                 </div>
             </form>
         </div>
+
     );
 };
-export default Form;
+export default wrapper.withRedux(Form);

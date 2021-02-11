@@ -18,6 +18,7 @@
     "export": "cross-env NODE_ENV=production next export"
   },
   "devDependencies": {
+    "classnames": "^2.2.6",
     "@babel/core": "^7.6.0",
     "@pankod/pankod-cli": "^1.0.0",
     "@storybook/addon-actions": "^5.3.18",
@@ -38,6 +39,7 @@
     "@types/node": "^12.7.5",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^17.0.0",
+    "@types/classnames": "^2.2.11",
     "@types/react-redux": "^7.1.2",
     "@types/redux-logger": "^3.0.8",
     "@types/redux-mock-store": "^1.0.1",
@@ -95,10 +97,10 @@
     "@storybook/react": "^6.1.17",
     "autoprefixer": "^9.6.1",
     "axios": "^0.21.1",
+    "classnames": "^2.2.6",
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "next": "^10.0.0",
-
     "next-compose-plugins": "^2.2.1",
     "next-optimized-images": "^2.6.2",
     "next-redux-wrapper": "^6.0.2",

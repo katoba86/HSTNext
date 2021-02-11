@@ -1,8 +1,33 @@
+$width-lg: 1170px;
 @import "~@primer/css/support/index";
-@include breakpoint(md) {
 
-        .intro{
-            background-image:url(/images/busx.jpg);
+    .intro{
+        h1{
+            @include h1-responsive;
+            margin-top:$spacer-3;
         }
+        @include breakpoint(md){
+            position:relative;
+            background-color:transparent;
+            background-size: auto 367px;
+            background-position: 20px -113px;
+            background-repeat:repeat-x;
 
-}
+            z-index:2;
+            &:before{
+                content:'';
+                width:100%;
+                height:100%;
+                position:absolute;
+                left:0;
+                top:0;
+                background:linear-gradient(180deg,transparent 250px,#e5e9d0 250px,#fff 100%);
+                z-index:-1;
+            }
+        }
+        //
+        width:100%;
+        height:388px;
+        padding:0 $spacer-3;
+        background-image:url(/images/busx.jpg);
+    }
