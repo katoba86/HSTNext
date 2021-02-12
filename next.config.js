@@ -11,6 +11,11 @@ const withPlugins = require('next-compose-plugins');
 const optimizedImages = require('next-optimized-images');
 
 module.exports =   {
+    images: {
+        domains: [
+            'a.storyblok.com'
+        ],
+    },
     plugins: [
         optimizedImages(),
         'postcss-preset-env'

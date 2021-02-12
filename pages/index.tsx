@@ -8,6 +8,7 @@ import {UserState} from "../src/type";
 import {fetchHome} from "@Api";
 import {StoryblokService} from "@Api/Storyblok.service";
 import BoxBig from "@Components/BoxBig";
+import Grid from "@Components/Grid";
 
 
 interface StoryBlokBlocks {
@@ -31,33 +32,45 @@ const HomePage = ({data}:HomeProps) => {
 
     return <Layout>
 
-        <div className="grid">
-            <div className="grid__item top">
+        <Grid>
 
 
-
+            <Grid.Top>
                 <div className="d-flex flex-column flex-md-row">
-                    {data.above.map((block:StoryBlokBlocks) => (
-                        <Box>
+                    {data.above.map((block:StoryBlokBlocks,index:number) => (
+                        <Box key={'box_'+index} id={'box_'+index}>
                             <h3 className="mb-1">{ block.Headline}</h3>
                             <p>{ block.Text }</p>
                             <button className="btn btn-primary my-3" type="button">New pull request</button>
                         </Box>
                     ))}
                 </div>
-            </div>
-                <div className="grid__item  left">
+            </Grid.Top>
+            <Grid.Left>
+                {data.body.map((block:any,index:number) => {
 
-                    <BoxBig>
-                        <div>Hello</div>
-                    </BoxBig>
+                        if(block.component==='Box2'){
+                            return (
+                                <BoxBig>
+                                    <BoxBig.Image imageSrc={block.Image.filename}/>
+                                    <BoxBig.Content>
+                                        <BoxBig.Title>Huhu</BoxBig.Title>
+                                        <span dangerouslySetInnerHTML={{__html:block.renderedText}} />
+                                    </BoxBig.Content>
+                                </BoxBig>
+                            );
+                        }
 
 
-                </div>
-            <div className="grid__item right">
-                { JSON.stringify(data.body)}
-            </div>
-        </div>
+                    }
+                )}
+
+            </Grid.Left>
+            <Grid.Right>
+                Right
+            </Grid.Right>
+
+        </Grid>
 
 
 

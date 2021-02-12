@@ -4,6 +4,8 @@ declare namespace Process {
         NEXT_PUBLIC_STATIC_PATH: string;
         NEXT_PUBLIC_API_URL: string;
         NEXT_PUBLIC_API_KEY: string;
+        STORY_TOKEN:string;
+        API_HOST:string;
     }
 }
 

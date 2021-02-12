@@ -15,17 +15,19 @@ $width-lg: 1170px;
 
 .appWrapper{
     position:relative;
-    height:100vh;
+    min-height:100vh;
+    height:100%;
     background-color:white;
     @include breakpoint(md){
 
         padding: 0;
-        height:100vh;
+
         @include hst_container;
         margin:0 0 0 $spacer-5;
         box-shadow:0 0 16px rgba(0,0,0,.5);
         main{
             margin-top:16px;
+            padding:0 $spacer-3;
         }
     }
 

@@ -1,2 +1,18 @@
 @import "~@primer/css/support/index";
-@import "~@primer/css/blankslate";
+
+.boxbig{
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.content{
+   padding-left:$spacer-2;
+    padding-right:$spacer-2;
+    max-width:500px;
+}
+.image{
+    flex:0 400px;
+    min-width:400px;
+    margin-right:4em;
+}

@@ -1,7 +1,10 @@
 import style from './Box.module.scss';
 import {BoxProps} from "@Components/Box/Box";
-const Box = ({ children,narrow,boxed }: BoxProps) => {
+const Box = ({ children,narrow,boxed,id }: BoxProps) => {
 
+    if(null === id || undefined === id){
+        id="Box";
+    }
     const classes:string[] = [style.blankslate];
     if(narrow){
         classes.push(style[`blankslate-narrow`]);
@@ -17,7 +20,7 @@ const Box = ({ children,narrow,boxed }: BoxProps) => {
     }
 
     return (
-        <div className={classes.join(' ')}>
+        <div id={id} className={classes.join(' ')}>
             {children}
         </div>
     )
