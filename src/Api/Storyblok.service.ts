@@ -28,9 +28,8 @@ export class StoryblokService{
         const res:StoryblokResult =  await this.client.get('cdn/stories/'+slug);
         const result = res.data.story.content;
         if(result.hasOwnProperty('body')){
-            result.body = result.body.map((item:StoryblokComponent<any>)=>{
+            result.body = result.body.map((item:Box2StoryBlockInterface)=>{
                 if(item.component==='Box2'){
-                    console.log(item.Text.content);
                     item.renderedText = item.Text.content.map((c:any)=>"<p>"+this.client.richTextResolver.render(c)+"</p>").join("");
                 }
                 return item;
@@ -41,4 +40,11 @@ export class StoryblokService{
     }
 
 
+}
+
+interface Box2StoryBlockInterface extends StoryblokComponent<any>{
+    Text:{
+        content:string[];
+    }
+    renderedText:string;
 }

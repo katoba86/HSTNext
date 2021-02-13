@@ -51,7 +51,7 @@ const HomePage = ({data}:HomeProps) => {
 
                         if(block.component==='Box2'){
                             return (
-                                <BoxBig>
+                                <BoxBig key={'BoxBig'+index}>
                                     <BoxBig.Image imageSrc={block.Image.filename}/>
                                     <BoxBig.Content>
                                         <BoxBig.Title>Huhu</BoxBig.Title>
@@ -59,10 +59,7 @@ const HomePage = ({data}:HomeProps) => {
                                     </BoxBig.Content>
                                 </BoxBig>
                             );
-                        }
-
-
-                    }
+                        }                    }
                 )}
 
             </Grid.Left>
