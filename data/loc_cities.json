@@ -1,0 +1,22 @@
+ [
+    {
+      "identifer": "2179",
+      "cityname": "Dortmund",
+      "lat": "51.51388",
+      "lng": "7.46465",
+      "bundesland": "1",
+      "urlname": "dortmund",
+      "geoId": "6553133",
+      "importance": "9680"
+    },
+    {
+      "identifer": "4191",
+      "cityname": "Hamm",
+      "lat": "51.68104427",
+      "lng": "7.817029953",
+      "bundesland": "1",
+      "urlname": "hamm",
+      "geoId": "6553135",
+      "importance": "4144"
+    }
+  ]

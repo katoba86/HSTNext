@@ -4,8 +4,18 @@ export interface UserState {
 }
 
 interface City {
-    name: string;
-    id: number;
+
+
+
+    name?: string;
+    identifer?: number;
+    cityname?:string;
+    bundesland?:string;
+    urlname?:string;
+    lat?:number;
+    lng?:number;
+    geoId?:number;
+    importance?:number;
 }
 interface Bdl {
     name: string;
