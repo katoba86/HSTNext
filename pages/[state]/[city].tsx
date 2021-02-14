@@ -45,12 +45,14 @@ export const getStaticPaths: GetStaticPaths<IPageUrl> = async () => {
 
 
     return {
-        paths: cities.map((city) => ({
-            params: {
-                city: city.urlname,
-                state:'nrw'
-            },
-        })),
+        paths: cities.map((city) => {
+            return {
+                params: {
+                    city: city.urlname,
+                    state: 'nrw'
+                }
+            }
+        }),
         fallback: true,
     };
 };
