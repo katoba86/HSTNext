@@ -3,8 +3,12 @@ import Layout from "@Components/Layout";
 
 import cities from '../../data/loc_cities.json';
 import {GetStaticPaths, GetStaticProps, NextPageContext} from "next";
-import {City} from "../../src/type";
+import {City, GermanState} from "../../src/type";
 import {getBySlug} from "@Api";
+import Box from "@Components/Box";
+import Grid from "@Components/Grid";
+import {cityText1} from "@Services/TextServer";
+import {GERMAN_STATES, getStateSlug} from "@Services/CityService";
 
 
 
@@ -16,44 +20,53 @@ interface CityPageProps {
 const CityPage = ({city}:CityPageProps) => {
     return (
       <Layout>
-          <div className="pt-lg-5">Halllo????
-
-          <pre>
-              {JSON.stringify(city)}
-          </pre>
-          </div>
+         <Grid>
+             <Grid.Top>
+                 <Box>
+                     <Box.Title>Busfahrplan {city.name}</Box.Title>
+                     <Box.Content>
+                         <p>
+                             { cityText1(city)}
+                         </p>
+                     </Box.Content>
+                 </Box>
+                 <Box>
+                     <Box.Title>Busfahrplan {city.name}</Box.Title>
+                     <Box.Content>
+                         <p>
+                             { cityText1(city)}
+                         </p>
+                     </Box.Content>
+                 </Box>
+             </Grid.Top>
+         </Grid>
       </Layout>
     );
 }
 
 
-interface Context extends NextPageContext{
-    query:{
-        state:string;
-        city:string;
-    }
-}
+
 type IPageUrl = {
     city: string;
     state: string;
 };
 export type ICityProps = {
     city: City;
+    state:GermanState;
 };
 
 export const getStaticPaths: GetStaticPaths<IPageUrl> = async () => {
-
 
     return {
         paths: cities.map((city) => {
             return {
                 params: {
                     city: city.urlname,
-                    state: 'nrw'
+                    state: getStateSlug(city.bundesland.bundesland_id)
                 }
             }
         }),
-        fallback: true,
+        fallback: 'blocking',
     };
 };
 
@@ -61,12 +74,13 @@ export const getStaticPaths: GetStaticPaths<IPageUrl> = async () => {
 
 
 export const getStaticProps:GetStaticProps<ICityProps,IPageUrl> = async ({params}) => {
-    const res = await getBySlug('nrw',params!.city);
-    const data = await res.json();
-
+    console.log("test");
+    const data = await getBySlug(params!.state,params!.city);
+        console.log(data);
     return {
         props:{
-            city:data as City
+            city:data,
+            state: GERMAN_STATES[data.bundesland.bundesland_id+1]
         },
 
     }

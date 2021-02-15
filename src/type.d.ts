@@ -3,15 +3,24 @@ export interface UserState {
     name: string;
 }
 
+interface GermanState {
+    bundesland_id: number;
+    name: string;
+    slug: string;
+    geoid: number;
+}
+interface CityBundesland{
+
+}
 interface City {
 
 
 
-    name?: string;
-    identifer?: number;
-    cityname?:string;
-    bundesland?:string;
-    urlname?:string;
+    name: string;
+    identifer: number;
+    cityname:string;
+    bundesland:GermanState;
+    urlname:string;
     lat?:number;
     lng?:number;
     geoId?:number;

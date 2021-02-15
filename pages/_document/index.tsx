@@ -22,10 +22,13 @@ type DocumentRenderProps =  DocumentProps
 class AppDocument extends Document<DocumentRenderProps> {
 
 
+
+
+
     render(): JSX.Element {
         return (
             <Html lang="de">
-                <Head/>
+                <Head />
                 <body
                     className={classnames(
                         style.body,
