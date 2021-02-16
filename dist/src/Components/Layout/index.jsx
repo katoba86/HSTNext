@@ -24,7 +24,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Layout_module_scss_1 = __importDefault(require("./Layout.module.scss"));
 const dynamic_1 = __importDefault(require("next/dynamic"));
-const DynamicForm = dynamic_1.default(() => Promise.resolve().then(() => __importStar(require('@Components/Form'))), { ssr: false });
+const DynamicForm = dynamic_1.default(() => Promise.resolve().then(() => __importStar(require('@Components/Form'))), { ssr: true });
 const DynamicIntro = dynamic_1.default(() => Promise.resolve().then(() => __importStar(require('@Components/Intro'))));
 const Layout = ({ children }) => {
     return (<div className={Layout_module_scss_1.default.appWrapper}>

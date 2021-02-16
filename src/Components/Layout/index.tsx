@@ -1,7 +1,7 @@
 import { LayoutProps } from "@Components/Layout/Layout";
 import style from './Layout.module.scss';
 import dynamic from "next/dynamic";
-const DynamicForm = dynamic(() => import('@Components/Form'),{ssr:false});
+const DynamicForm = dynamic(() => import('@Components/Form'),{ssr:true});
 const DynamicIntro = dynamic(() => import('@Components/Intro'));
 
 const Layout = ({ children }: LayoutProps) => {

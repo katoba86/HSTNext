@@ -1,1 +1,1 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+This is a the new template for [FBB](https://fahrplan-bus-bahn.de).
