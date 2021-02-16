@@ -8,31 +8,24 @@ const Title = ({children}:BoxProps) => {
     )
 }
 
-const Content = ({children,narrow,boxed}:BoxProps) => {
-    const classes:string[] = [style.blankslate];
-    if(narrow){
-        classes.push(style[`blankslate-narrow`]);
-    }
-    if(boxed){
+const Content = ({children}:BoxProps) => {
+
+
+
         return (
 
-                <div className={classes.join(' ')}>
+                <div>
                     {children}
                 </div>
 
         )
-    }
 
-    return (
-        <>
-            {children}
-        </>
-    )
 }
 
 const Box = ({ children }: BoxProps) => {
+    const classes:string[] = [style.blankslate,style[`blankslate-narrow`]];
         return (
-            <div className="Box">
+            <div className={classes.join(' ')}>
                     {children}
             </div>
         )

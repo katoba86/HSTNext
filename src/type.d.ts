@@ -1,3 +1,8 @@
+
+export interface OnlyChildren {
+    children:React.ReactNode;
+}
+
 export interface UserState {
     modal: boolean;
     name: string;
@@ -13,8 +18,6 @@ interface CityBundesland{
 
 }
 interface City {
-
-
 
     name: string;
     identifer: number;
