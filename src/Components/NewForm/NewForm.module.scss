@@ -1,0 +1,21 @@
+.newform{
+    width:600px;
+    background-color:white;
+    box-shadow:4px 2px 8px rgba(0,0,0,.2);
+    border-radius:3em;
+    min-height:400px;
+    padding:2em;
+    display:flex;
+    flex-direction:column;
+    .forminput{
+
+        input{
+            border-radius:1em;
+            border:none;
+            background-color:#dfdfdf;
+            padding:8px 20px;
+            width:100%;
+        }
+        margin-bottom:1em;
+    }
+}

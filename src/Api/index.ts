@@ -22,3 +22,8 @@ export const getBySlug = async (state:string,city:string) => {
     const json = await data.json();
     return extract<City>(json as FetchedData<City>);
 };
+export const searchCity = async (input:string) => {
+    const data = await fetch(`https://internal.fahrplan-bus-bahn.de/search/mixed/${input}`);
+    const json = await data.json();
+    return extract<City[]>(json as FetchedData<City[]>);
+}

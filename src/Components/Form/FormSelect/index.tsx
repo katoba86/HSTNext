@@ -1,11 +1,39 @@
-import React from "react";
+import React, {Dispatch, useEffect, useRef, useState} from "react";
 import style from './FormSelect.module.scss'
 
 import HomeIcon from './home.svg';
+import {searchCity} from "@Api";
+import {City} from "../../../type";
+import {entries} from "next/dist/server/on-demand-entry-handler";
 
+interface IFormState {
+    input:string;
+    entries:City[]
+}
 
 const FormSelect = () => {
 
+
+    const [formState,setFormState] = useState<IFormState>({
+        entries:[],
+        input:''
+    })
+
+
+
+
+
+    const getEntries = async (e:React.FormEvent<HTMLInputElement>) => {
+
+        e.persist();
+        const input = e.currentTarget.value;
+        let data = await searchCity(input);
+        console.log(data);
+        setFormState({...formState,
+            entries:data
+        });
+        e.preventDefault();
+    }
 
     return (
 
@@ -15,7 +43,7 @@ const FormSelect = () => {
                     <HomeIcon />
                 </div>
             </div>
-            <input type="text" placeholder="Search" className={style.input} />
+            <input type="text"  onChange={getEntries} placeholder="Search" className={style.input} />
 
             <div className={style.autocomplete}>
                 <ul>
