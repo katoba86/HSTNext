@@ -28,6 +28,8 @@ const BoxBig = ({ children }: BoxBigProps) => {
 
     const classes:string[] = [
         'd-flex',
+        'flex-column',
+        'flex-md-row',
         style.boxbig
     ];
 
