@@ -1,0 +1,35 @@
+@import "~@primer/css/support/index";
+.icon{
+    position:absolute;
+    width:24px;
+    height:24px;
+    display:block;
+    top:12px;
+    left:8px;
+    .iconInner{
+        width:24px;
+        height:24px;
+        transform-origin: center center;
+        svg{
+            width:20px;
+            height:20px;
+        }
+    }
+}
+.outer{
+    width:100%;
+    .input{
+        width:100%;
+        padding-left:20px;
+    }
+}
+.autocomplete{
+    position:absolute;
+    width:300px;
+    height:300px;
+    overflow-y:scroll;
+    background-color:blue;
+    display:block;
+    box-sizing: content-box;
+    top:48px;
+}

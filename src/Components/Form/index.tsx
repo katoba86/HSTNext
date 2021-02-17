@@ -5,13 +5,14 @@ import {
     HomeIcon,
     MilestoneIcon,
 } from "@primer/octicons-react";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { ApplicationState } from "@Redux/reducer";
 import { setModal } from "@Redux/actions";
 import style from "./Form.module.scss";
 import { UserState } from "../../type";
 import dynamic from "next/dynamic";
+import FormSelect from "@Components/Form/FormSelect";
 
 
 interface FormProps {
@@ -22,6 +23,16 @@ interface OpenModalParams extends React.MouseEvent{
 }
 
 const Form = ({noMargin}:FormProps) => {
+
+    const [usePaging, setUsePaging] = useState(false);
+    useEffect(()=>{
+        if(window.innerWidth < 700){
+            setUsePaging(true);
+        }else{
+            setUsePaging(false);
+        }
+    });
+
     const { modal } = useSelector(
         (state: ApplicationState): UserState => state.user
     );
@@ -57,9 +68,10 @@ const Form = ({noMargin}:FormProps) => {
 
     const openModal = (e: OpenModalParams) => {
 
-
-        e.preventDefault();
-        dispatch(setModal(true));
+        if(usePaging) {
+            e.preventDefault();
+            dispatch(setModal(true));
+        }
     };
 
     const classes:string[] = [style.mainForm];
@@ -70,6 +82,7 @@ const Form = ({noMargin}:FormProps) => {
     return (
 
         <div id="Form" className={classes.join(' ')}>
+            <h3>Should use? {(usePaging)?"Should use Paging":"Should not use Paging"}</h3>
             <Loader />
 
             <h1 className="d-md-none">Haltestellen</h1>
@@ -78,10 +91,9 @@ const Form = ({noMargin}:FormProps) => {
                     onClick={(e:OpenModalParams)=>openModal(e)}
                     className={[style.Box, "Box position-relative"].join(" ")}
                 >
-                    <div className="Box-row d-flex flex-items-center">
-                        <HomeIcon size={24} />
-                        <div className="flex-auto">Von</div>
-                    </div>
+                   <FormSelect />
+
+
                     <button type="button" className={style.toggle}>
                         <ArrowSwitchIcon size={24} />
                     </button>

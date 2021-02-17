@@ -80,6 +80,7 @@
     "webpack": ">=4.45.0"
   },
   "dependencies": {
+    "@svgr/webpack": "^5.5.0",
     "storyblok-js-client": "^2.1.0",
     "@fullhuman/postcss-purgecss": "^4.0.0",
     "@next/bundle-analyzer": "^10.0.6",
