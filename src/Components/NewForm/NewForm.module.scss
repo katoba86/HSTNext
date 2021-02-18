@@ -1,21 +1,73 @@
 .newform{
     width:600px;
-    background-color:white;
-    box-shadow:4px 2px 8px rgba(0,0,0,.2);
-    border-radius:3em;
-    min-height:400px;
-    padding:2em;
-    display:flex;
-    flex-direction:column;
-    .forminput{
 
-        input{
-            border-radius:1em;
-            border:none;
-            background-color:#dfdfdf;
-            padding:8px 20px;
-            width:100%;
+
+
+    display:flex;
+    flex-direction:row;
+    .leftForm{
+        background-color:white;
+        box-shadow:4px 2px 8px rgba(0,0,0,.2);
+        border-radius:3em;
+        padding:2em;
+        flex:1;
+        display:flex;
+        flex-direction:column;
+        .forminput{
+            input{
+                border-radius:1em;
+                border:none;
+                background-color:#dfdfdf;
+
+                padding:16px 20px;
+                width:100%;
+            }
+            margin-bottom:1em;
         }
-        margin-bottom:1em;
+        .finish{
+            display:flex;
+            flex-direction:row;
+            justify-content: center;
+            align-items: center;
+            h2{
+                color:#cd632a;
+                flex:1;
+                font-size:2.5em;
+                text-shadow: 2px 4px 2px rgba(0,0,0,.1);
+            }
+            .finishbtn{
+                border:none;
+                border-radius:8em;
+                background-color:#cd632a;
+                color:white;
+                padding:1em 1em;
+            }
+        }
     }
+    .togglearea{
+        align-self: center;
+        flex:0 1 ;
+        padding:0 0 0 2em;
+        a{
+            display:flex;
+            align-content: center;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            border:none;
+            background-color: #cd632a;
+            box-shadow:4px 2px 8px rgba(0,0,0,.2);
+            height:200px;
+            padding:8px;
+            color:white;
+            border-radius:8em;
+            svg > *{
+                stroke: white;
+            }
+            svg,strong{
+                align-self: center;
+            }
+        }
+    }
+
 }
